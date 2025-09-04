@@ -6,10 +6,7 @@ from from_root import from_root
 from datetime import datetime
 
 # constants for log configurations
-LOG_DIR = 'logs'
-LOG_FILE = f"{datetime.now().strftime('%m-%d-%Y-%H-%M-%S')}.log"
-MAX_LOG_SIZE = 5 * 1024 * 1024  # 5 MB
-BACKUP_COUNT = 3
+from src.constants import LOG_DIR, LOG_FILE, MAX_LOG_SIZE, BACKUP_COUNT
 
 # construct log file path
 log_dir_path = os.path.join(from_root(), LOG_DIR)
