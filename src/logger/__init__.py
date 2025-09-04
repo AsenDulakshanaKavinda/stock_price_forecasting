@@ -5,8 +5,12 @@ from logging.handlers import RotatingFileHandler
 from from_root import from_root
 from datetime import datetime
 
+
 # constants for log configurations
-from src.constants import LOG_DIR, LOG_FILE, MAX_LOG_SIZE, BACKUP_COUNT
+LOG_DIR = 'logs'
+LOG_FILE = f"{datetime.now().strftime('%m-%d-%Y-%H-%M-%S')}.log"
+MAX_LOG_SIZE = 5 * 1024 * 1024  # 5 MB
+BACKUP_COUNT = 3
 
 # construct log file path
 log_dir_path = os.path.join(from_root(), LOG_DIR)
@@ -47,6 +51,7 @@ LOG_CONFIG = {
 # Apply config
 logging.config.dictConfig(LOG_CONFIG)
 
+# unit test for logger
 def test_log():
         # Example usage
         app_logger = logging.getLogger("app")
